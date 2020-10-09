@@ -7,8 +7,8 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: biblio
-  stage: dev
+  profile: biblio #usualmente es default
+  stage: dev #usualmente es dev, pero literalmente puede ser cambiado a cualquier cosa
 
 functions:
   graphql:
