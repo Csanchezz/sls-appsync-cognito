@@ -8,5 +8,6 @@ exports.graphql = async (event, context ) => {
   // return { statusCode: 200, body: JSON.stringify( { message: 'Helloworld', input: event, }, null, 2 ), };
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  return "Hello World";
+  // return "Hello World V2";
+  return JSON.stringify({ x: 5, y: 6 });
 };

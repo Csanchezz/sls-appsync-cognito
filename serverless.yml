@@ -7,7 +7,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: biblio #usualmente es default
+  profile: personal #usualmente es default
   stage: dev #usualmente es dev, pero literalmente puede ser cambiado a cualquier cosa
 
 functions:
