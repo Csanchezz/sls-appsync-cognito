@@ -1,4 +1,4 @@
-service: sls-appsync-backend
+service: loyalty-program-backend
 
 plugins:
   - serverless-appsync-plugin
@@ -17,7 +17,7 @@ functions:
 custom:
   accountId: #{AWS::AcountId}
   appSync:
-    name: sls-appsync-api
+    name: loyalty-program-api
     authenticationType: AMAZON_COGNITO_USER_POOLS
     userPoolConfig:
       awsRegion: us-east-1
@@ -48,19 +48,19 @@ resources:
     CognitoUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
-        UserPoolName: cognito_sls_appsync_user_pool
+        UserPoolName: loyalty_program
     # Cognito - Client
     CognitoUserPoolClient:
       Type: AWS::Cognito::UserPoolClient
       Properties:
-        ClientName: cognito_sls_appsync_client
+        ClientName: cognito_loyalty_program_appsync_client
         UserPoolId:
           Ref: CognitoUserPool
     # Cognito - Identity
     CognitoIdentityPool:
       Type: AWS::Cognito::IdentityPool
       Properties:
-        IdentityPoolName: cognito_sls_appsync_identity_pool
+        IdentityPoolName: cognito_loyalty_program_appsync_identity_pool
         AllowUnauthenticatedIdentities: false
         CognitoIdentityProviders:
           - ClientId:
@@ -81,7 +81,7 @@ resources:
     CognitoAuthRole:
       Type: AWS::IAM::Role
       Properties:
-        RoleName: cognito_sls_appsync_appAuthRole
+        RoleName: cognito_loyalty_program_appsync_appAuthRole
         Path: /
         AssumeRolePolicyDocument:
           Version: "2012-10-17"
@@ -115,7 +115,7 @@ resources:
     CognitoUnauthRole:
       Type: AWS::IAM::Role
       Properties:
-        RoleName: cognito_sls_appsync_appUnauthRole
+        RoleName: cognito_loyalty_program_appsync_appUnauthRole
         Path: /
         AssumeRolePolicyDocument:
           Version: "2012-10-17"
